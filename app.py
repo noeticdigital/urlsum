@@ -49,7 +49,7 @@ st.markdown(
      """You may also select Unstructured Text from the dropdown"""
 )
 
-selectbox = st.selectbox("Unstructured Text or URL source", ("URL", "Unstructured Text"))
+selectbox = st.selectbox("URL or Unstructured Text source", ("URL", "Unstructured Text"))
 
 if selectbox == "Raw text":
     raw_text = st.text_area(label="Text", height=300, max_chars=6000)
