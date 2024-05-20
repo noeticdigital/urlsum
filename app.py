@@ -44,6 +44,14 @@ if "error" not in st.session_state:
     st.session_state.error = ""
 
 st.title("Generate Concept from URL")
+
+# URL of the image you want to display
+image_url = 'https://living-best.tech/wp-content/webp-express/webp-images/uploads/2023/07/LivingBest_Logo_CarterGroup-V2.jpg.webp'
+
+# Use Streamlit's st.image function to display the image
+st.image(image_url, caption='')
+
+
 st.markdown(
     """Please enter the product or service URL below and press ENTER to generate its concept description."""
      """You may also select Unstructured Text from the dropdown"""
