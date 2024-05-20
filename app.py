@@ -18,7 +18,7 @@ logging.basicConfig(format="\n%(asctime)s\n%(message)s", level=logging.INFO, for
 # Define functions
 def summarize(text: str):
     """Summarize text."""
-    summary_prompt = "\n\Write a concept summary for this product or service in less than 120 words:\n\n"
+    summary_prompt = "\n\Write a concept summary for this product or service in 120 words:\n\n"
     openai = oai.Openai()
     flagged = openai.moderate(text)
     if flagged:
