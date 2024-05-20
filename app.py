@@ -67,7 +67,7 @@ if selectbox == "Raw text":
             st.text_area(
                 label="Raw text summary",
                 value=st.session_state.summary,
-                height=100,
+                height=200,
             )
             logging.info(f"Text: {raw_text}\nSummary: {st.session_state.summary}")
             st.button(
@@ -93,7 +93,7 @@ elif selectbox == "URL":
             summarize(url_text)
             if st.session_state.summary:
                 st.text_area(
-                    label="URL summary", value=st.session_state.summary, height=100
+                    label="URL summary", value=st.session_state.summary, height=200
                 )
                 logging.info(f"URL: {url}\nSummary: {st.session_state.summary}")
                 # Force responsive layout for columns also on mobile
