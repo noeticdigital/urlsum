@@ -119,5 +119,3 @@ if st.session_state.error:
 if st.session_state.summary:
     st.markdown("""---""")
     col1, col2 = st.columns(2)
-    with col1:
-        
