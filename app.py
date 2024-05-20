@@ -43,9 +43,9 @@ if "summary" not in st.session_state:
 if "error" not in st.session_state:
     st.session_state.error = ""
 
-st.title("Summarize web content")
+st.title("Generate Concept from URL or Unstructured Text")
 st.markdown(
-    """This mini-app scrapes the paragraphs from a web page and generates a concept summary statement using OpenAI's API"""
+    """Please enter the product or service URL below and press ENTER to generate its concept description."""
 )
 
 selectbox = st.selectbox("Raw text or URL source", ("URL", "Raw text"))
