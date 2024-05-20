@@ -18,7 +18,7 @@ logging.basicConfig(format="\n%(asctime)s\n%(message)s", level=logging.INFO, for
 # Define functions
 def summarize(text: str):
     """Summarize text."""
-    summary_prompt = "Write a product concept in under 250 words, following this structure: Product or Service Name, Company Name, The product or service use case, The specific need/s it meets, What is new about this product, Who produced it, including their background, history; and ‘right’ to make such a product, This product’s point of competitive differentiation, The core promise to the consumer, What information that can help me believe this promise.",
+    summary_prompt = "Write a product concept in under 250 words, following this structure: Product or Service Name, Company Name, The product or service use case, The specific need/s it meets, What is new about this product, Who produced it, including their background, history; and ‘right’ to make such a product, This product’s point of competitive differentiation, The core promise to the consumer, What information that can help me believe this promise."
 
 
 
