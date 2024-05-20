@@ -1,4 +1,4 @@
-"""Streamlit app to summarize text, e.g. blog articles"""
+"""Streamlit app to summarize URLs"""
 
 # Import from standard library
 import logging
@@ -18,7 +18,7 @@ logging.basicConfig(format="\n%(asctime)s\n%(message)s", level=logging.INFO, for
 # Define functions
 def summarize(text: str):
     """Summarize text."""
-    summary_prompt = "\n\Write an engaging summary for the above article in less than 120 characters:\n\n"
+    summary_prompt = "\n\Write a concept summary for this product or service in less than 120 words:\n\n"
     openai = oai.Openai()
     flagged = openai.moderate(text)
     if flagged:
@@ -34,7 +34,7 @@ def summarize(text: str):
 
 
 # Render streamlit page
-st.set_page_config(page_title="Summarizer", page_icon="🤖")
+st.set_page_config(page_title="Noetic URL Summariser")
 if "summary" not in st.session_state:
     st.session_state.summary = ""
 if "error" not in st.session_state:
@@ -42,9 +42,7 @@ if "error" not in st.session_state:
 
 st.title("Summarize web content")
 st.markdown(
-    """This mini-app scrapes the paragraphs from a web page,
-    e.g. a blog post, and summarizes them into a Tweet-sized
-    statement using OpenAI's [GPTs](https://beta.openai.com/docs/models/overview). You can find the code on [GitHub](https://github.com/kinosal/summarizer) and the author on [Twitter](https://twitter.com/kinosal)."""
+    """This mini-app scrapes the paragraphs from a web page and generates a concept summary statement using OpenAI's API"""
 )
 
 selectbox = st.selectbox("Raw text or URL source", ("URL", "Raw text"))
@@ -100,10 +98,7 @@ elif selectbox == "URL":
                 col1, col2 = st.columns(2)
                 with col1:
                     components.html(
-                        f"""
-                            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="{st.session_state.summary}\n- Summary generated via web-summarizer.streamlit.app of" data-url="{url}" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                        """,
-                        height=45,
+                     
                     )
                 with col2:
                     st.button(
