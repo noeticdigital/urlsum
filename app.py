@@ -53,8 +53,8 @@ st.image(image_url, caption='')
 
 
 st.markdown(
-    """Please enter the product or service URL below and press ENTER to generate its concept description."""\n
-     """You may also select Unstructured Text from the dropdown"""
+    """Please enter the product or service URL below and press ENTER to generate its concept description.  
+    You may also select Unstructured Text from the dropdown"""
 )
 
 selectbox = st.selectbox("URL or Unstructured Text source", ("URL", "Unstructured Text"))
