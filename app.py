@@ -95,7 +95,6 @@ elif selectbox == "URL":
                     </style>""",
                     unsafe_allow_html=True,
                 )
-                with col1:
                     st.button(
                         label="Regenerate summary",
                         type="secondary",
