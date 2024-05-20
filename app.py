@@ -43,12 +43,13 @@ if "summary" not in st.session_state:
 if "error" not in st.session_state:
     st.session_state.error = ""
 
-st.title("Generate Concept from URL or Unstructured Text")
+st.title("Generate Concept from URL")
 st.markdown(
     """Please enter the product or service URL below and press ENTER to generate its concept description."""
+     """You may also select Unstructured Text from the dropdown"""
 )
 
-selectbox = st.selectbox("Raw text or URL source", ("URL", "Raw text"))
+selectbox = st.selectbox("Unstructured Text or URL source", ("URL", "Unstructured Text"))
 
 if selectbox == "Raw text":
     raw_text = st.text_area(label="Text", height=300, max_chars=6000)
