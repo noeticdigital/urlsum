@@ -17,7 +17,7 @@ logging.basicConfig(format="\n%(asctime)s\n%(message)s", level=logging.INFO, for
 def summarize(text: str, language: str):
     """Summarize text."""
     if language == "Japanese":
-        summary_prompt = "製品やサービス名、会社名、使用事例、具体的なニーズ、それが満たすニーズ、新製品の特徴、製品の生産者とその歴史、競合との差別化、消費者への核心的な約束、そしてこの約束を信じるための情報を考慮して、セクションタイトルや記号なしで100文字以内で製品コンセプトを記述してください。コンセプトは日本語で書かれ、カタカナの借用語は最小限にとどめ、英語のアルファベットは使用しないこと。"
+        summary_prompt = "製品やサービス名、会社名、使用事例、具体的なニーズ、それが満たすニーズ、新製品の特徴、製品の生産者とその歴史、競合との差別化、消費者への核心的な約束、そしてこの約束を信じるための情報を考慮して、セクションタイトルや記号なしで300文字以内で製品コンセプトを記述してください。コンセプトは日本語で書かれ、カタカナの借用語は最小限にとどめ、英語のアルファベットは使用しないこと。"
     else:
         summary_prompt = "Write a product concept in under 100 words, with no section titles or symbols; taking into account the product or service name, company name, the product or service use case, the specific need/s it meets, what is new about this product, who produced it and their history and right to make such a product, competitive differentiation, the core promise to the consumer and information that can help me believe this promise."
 
