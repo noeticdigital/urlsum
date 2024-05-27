@@ -1,5 +1,3 @@
-"""Streamlit app to summarize URLs"""
-
 # Import from standard library
 import logging
 
@@ -16,11 +14,12 @@ logging.basicConfig(format="\n%(asctime)s\n%(message)s", level=logging.INFO, for
 
 
 # Define functions
-def summarize(text: str):
+def summarize(text: str, language: str):
     """Summarize text."""
-    summary_prompt = "Write a product concept in under 100 words, with no section titles or symbols; taking into account the product or service name, company name, the product or service use case, the specific need/s it meets, what is new about this product, who produced it and their history and right to make such a product, competitive differentiation, the core promise to the consumer and information that can help me believe this promise."
-
-
+    if language == "Japanese":
+        summary_prompt = "製品やサービス名、会社名、使用事例、具体的なニーズ、それが満たすニーズ、新製品の特徴、製品の生産者とその歴史、競合との差別化、消費者への核心的な約束、そしてこの約束を信じるための情報を考慮して、セクションタイトルや記号なしで100文字以内で製品コンセプトを記述してください。"
+    else:
+        summary_prompt = "Write a product concept in under 100 words, with no section titles or symbols; taking into account the product or service name, company name, the product or service use case, the specific need/s it meets, what is new about this product, who produced it and their history and right to make such a product, competitive differentiation, the core promise to the consumer and information that can help me believe this promise."
 
     openai = oai.Openai()
     flagged = openai.moderate(text)
@@ -57,12 +56,14 @@ st.markdown(
     You may also select Unstructured Text from the dropdown"""
 )
 
+language = st.selectbox("Select Language", ("English", "Japanese"))
+
 selectbox = st.selectbox("URL or Unstructured Text source", ("URL", "Unstructured Text"))
 
 if selectbox == "Raw text":
     raw_text = st.text_area(label="Text", height=300, max_chars=6000)
     if raw_text:
-        summarize(raw_text)
+        summarize(raw_text, language)
         if st.session_state.summary:
             st.text_area(
                 label="Raw text summary",
@@ -74,7 +75,7 @@ if selectbox == "Raw text":
                 label="Regenerate summary",
                 type="secondary",
                 on_click=summarize,
-                args=[raw_text],
+                args=[raw_text, language],
             )
 
 elif selectbox == "URL":
@@ -90,7 +91,7 @@ elif selectbox == "URL":
             url_text = (
                 scraper.extract_content(response)[:6000].strip().replace("\n", " ")
             )
-            summarize(url_text)
+            summarize(url_text, language)
             if st.session_state.summary:
                 st.text_area(
                     label="URL summary", value=st.session_state.summary, height=200
@@ -108,11 +109,11 @@ elif selectbox == "URL":
                     unsafe_allow_html=True,
                 )
                 st.button(
-                        label="Regenerate summary",
-                        type="secondary",
-                        on_click=summarize,
-                        args=[url_text],
-                    )
+                    label="Regenerate summary",
+                    type="secondary",
+                    on_click=summarize,
+                    args=[url_text, language],
+                )
 
 if st.session_state.error:
     st.error(st.session_state.error)
