@@ -40,7 +40,7 @@ class Openai:
     @staticmethod
     def complete(
         prompt: str,
-        model: str = "gpt-4o",
+        model: str = "GPT-3.5 Turbo",
         temperature: float = 0.9,
         max_tokens: int = 500,
     ) -> str:
