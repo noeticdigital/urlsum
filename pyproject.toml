@@ -3,6 +3,7 @@ name = "summarizer"
 version = "0.1.0"
 description = ""
 authors = ["Nikolas Schriefer <info@nikolasschriefer.de>"]
+package-mode = false  # Add this line here
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -10,7 +11,7 @@ streamlit = "^1.15"
 openai = "^1.6"
 bs4 = "^0.0"
 
-[tool.poetry.group.dev.dependencies]
+[tool.poetry.group.dev.dependencies]  # Updated to new dev-dependencies format
 black = "^23.3"
 pycodestyle = "^2.9"
 
