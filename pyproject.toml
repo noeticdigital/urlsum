@@ -10,7 +10,7 @@ streamlit = "^1.15"
 openai = "^1.6"
 bs4 = "^0.0"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 black = "^23.3"
 pycodestyle = "^2.9"
 
