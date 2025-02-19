@@ -3,7 +3,7 @@ name = "summarizer"
 version = "0.1.0"
 description = ""
 authors = ["Nikolas Schriefer <info@nikolasschriefer.de>"]
-package-mode = false  # ✅ Prevent Poetry from treating it as a package
+package-mode = false  # ✅ Prevent Poetry from looking for a missing package
 
 [tool.poetry.dependencies]
 python = "^3.10"
