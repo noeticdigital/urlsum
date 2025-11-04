@@ -44,10 +44,10 @@ class Openai:
         temperature: float = 0.9,
         max_tokens: int = 500,
     ) -> str:
-        """Call OpenAI GPT Completion with text prompt.
+        """Call OpenAI  Completion with text prompt.
         Args:
             prompt: text prompt
-            model: OpenAI model name, e.g. "gpt-4o-mini"
+            model: OpenAI model name, e.g. "gpt-5-mini"
             temperature: float between 0 and 1
             max_tokens: int between 1 and 2048
         Return: predicted response text
